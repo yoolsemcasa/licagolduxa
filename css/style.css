@@ -25,13 +25,18 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
+    width: 100%;
 }
 
 body {
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     background: var(--gradiente-fundo);
     color: var(--texto-escuro);
+    width: 100%;
     min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
     line-height: 1.6;
 }
@@ -41,13 +46,25 @@ body {
 /* ========================================== */
 .tela {
     display: none;
+    width: 100%;
     min-height: 100vh;
+    min-height: 100dvh;
     animation: fadeIn 0.6s ease-out;
 }
 
 .tela.ativa {
     display: flex;
     flex-direction: column;
+}
+
+.tela.tela-inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    box-sizing: border-box;
+    background: var(--gradiente-fundo);
 }
 
 @keyframes fadeIn {
@@ -94,15 +111,6 @@ body {
     font-weight: 300;
     color: var(--rosa-profundo);
     letter-spacing: 1px;
-}
-
-.titulo-inicio {
-    font-size: 2.2rem;
-    font-weight: 300;
-    color: var(--rosa-profundo);
-    margin-bottom: 2.8rem;
-    text-align: center;
-    letter-spacing: 0.5px;
 }
 
 /* ========================================== */
@@ -188,32 +196,32 @@ body {
     width: 100px;
 }
 
-/* ========================================== */
-/* TELA DE INÍCIO                             */
-/* ========================================== */
-.tela-inicio {
-    justify-content: center;
-    align-items: center;
-    background: var(--gradiente-fundo);
-    padding: 2.5rem;
+.cartao-inicio {
+    width: min(90vw, 600px);
+    padding: clamp(2rem, 5vw, 4rem);
+    box-sizing: border-box;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: clamp(20px, 4vw, 28px);
+    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.08);
 }
 
-.cartao-inicio {
+.titulo-inicio {
+    font-size: clamp(1.4rem, 5vw, 2.6rem);
+    font-weight: 300;
+    color: var(--rosa-profundo);
+    margin-bottom: clamp(1.5rem, 4vw, 2.8rem);
     text-align: center;
-    padding: 4rem 3rem;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 28px;
-    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.08);
-    max-width: 540px;
-    width: 100%;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
 }
 
 .botoes-inicio {
     display: flex;
-    gap: 1.5rem;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
     justify-content: center;
     align-items: center;
-    min-height: 70px;
+    flex-wrap: wrap;
 }
 
 /* ========================================== */
@@ -804,24 +812,14 @@ body {
         font-size: 1.4rem;
     }
 
-    .titulo-inicio {
-        font-size: 1.8rem;
-    }
-
-    .cartao-inicio {
-        padding: 2.5rem 1.5rem;
-        max-width: 420px;
-    }
-
     .botoes-inicio {
         flex-direction: column;
-        gap: 1rem;
     }
 
     .botao {
         width: 100%;
-        padding: 1rem 2rem;
-        font-size: 1.05rem;
+        padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+        font-size: clamp(0.95rem, 2vw, 1.05rem);
     }
 
     .menu-principal {
@@ -904,10 +902,6 @@ body {
         font-size: 1.2rem;
     }
 
-    .titulo-inicio {
-        font-size: 1.3rem;
-    }
-
     .area-coracoes {
         height: 250px;
     }
@@ -923,15 +917,6 @@ body {
 }
 
 @media (min-width: 1200px) {
-    .cartao-inicio {
-        max-width: 600px;
-        padding: 4.5rem 3.5rem;
-    }
-
-    .titulo-inicio {
-        font-size: 2.6rem;
-    }
-
     .botao {
         padding: 1.1rem 3.2rem;
         font-size: 1.15rem;
