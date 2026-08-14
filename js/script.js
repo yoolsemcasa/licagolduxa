@@ -19,10 +19,15 @@ const CONFIG = {
         "Por que você insiste?",
         "Ok, ok... vou ficar aqui.",
         "Você é persistente!",
-        "Desisto. Clica no Sim! ❤️"
+        "Desisto. Clica no Sim! ❤️",
+        "Sério? Vai clicar de novo?",
+        "O 'Não' está ficando com ciúmes.",
+        "O 'Sim' está esperando você!",
+        "Clica no 'Sim' logo!",
+        "O 'Não' já está cansado de fugir."
     ],
     distanciaFuga: 120,
-    tentativasAntesDificil: 5,
+    tentativasAntesDificil: 10,
 
     // --- Dedicatórias ---
     // Adicione novas cartas aqui!
@@ -219,7 +224,6 @@ function inicializarTelaInicio() {
     // Botão "Não" foge do cursor
     btnNao.addEventListener('mouseenter', (e) => {
         if (estado.tentativasNao >= CONFIG.mensagensNao.length) {
-            // Depois de todas as mensagens, fica impossível clicar
             return;
         }
 
@@ -230,7 +234,6 @@ function inicializarTelaInicio() {
 
         let novaX, novaY;
 
-        // Se já tentou várias vezes, move mais longe
         const multiplicador = estado.tentativasNao > CONFIG.tentativasAntesDificil ? 2 : 1;
         const distancia = CONFIG.distanciaFuga * multiplicador;
 
@@ -244,15 +247,14 @@ function inicializarTelaInicio() {
         btn.style.top = novaY + 'px';
         btn.style.zIndex = '9999';
 
-        // Mudar texto
         estado.tentativasNao++;
         if (estado.tentativasNao <= CONFIG.mensagensNao.length) {
             btn.textContent = CONFIG.mensagensNao[estado.tentativasNao - 1];
         }
 
-        // Se já tentou muito, fica mais difícil
         if (estado.tentativasNao > CONFIG.tentativasAntesDificil) {
-            btn.style.fontSize = (0.9 - (estado.tentativasNao * 0.02)) + 'rem';
+            const novoSize = Math.max(0.75, 0.9 - (estado.tentativasNao - CONFIG.tentativasAntesDificil) * 0.015);
+            btn.style.fontSize = novoSize + 'rem';
         }
     });
 
@@ -266,10 +268,16 @@ function inicializarTelaInicio() {
         btn.style.position = 'fixed';
         btn.style.left = Math.random() * maxX + 'px';
         btn.style.top = Math.random() * maxY + 'px';
+        btn.style.zIndex = '9999';
 
         estado.tentativasNao++;
         if (estado.tentativasNao <= CONFIG.mensagensNao.length) {
             btn.textContent = CONFIG.mensagensNao[estado.tentativasNao - 1];
+        }
+
+        if (estado.tentativasNao > CONFIG.tentativasAntesDificil) {
+            const novoSize = Math.max(0.75, 0.9 - (estado.tentativasNao - CONFIG.tentativasAntesDificil) * 0.015);
+            btn.style.fontSize = novoSize + 'rem';
         }
     });
 }
@@ -730,7 +738,7 @@ document.addEventListener('error', function(e) {
     if (e.target.tagName === 'IMG') {
         e.target.style.display = 'none';
         const placeholder = document.createElement('div');
-        placeholder.style.cssText = 'color:#aaa;text-align:center;padding:2rem;';
+        placeholder.style.cssText = 'color:#aaa;text-align:center;padding:2rem;font-size:0.95rem;';
         placeholder.innerHTML = '📷<br><small>Imagem não encontrada</small>';
         e.target.parentNode.insertBefore(placeholder, e.target.nextSibling);
     }
