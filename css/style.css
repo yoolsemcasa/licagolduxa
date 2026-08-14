@@ -1,0 +1,947 @@
+/* ========================================== */
+/* RESET E BASE                                */
+/* ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --rosa-claro: #fce4ec;
+    --rosa-medio: #f8bbd0;
+    --rosa-escuro: #ec407a;
+    --rosa-profundo: #c2185b;
+    --branco: #ffffff;
+    --off-white: #fff8fa;
+    --texto-escuro: #4a4a4a;
+    --texto-medio: #7a7a7a;
+    --sombra: rgba(0, 0, 0, 0.08);
+    --sombra-media: rgba(0, 0, 0, 0.12);
+    --gradiente-fundo: linear-gradient(135deg, #fff5f8 0%, #fce4ec 100%);
+    --transicao: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--gradiente-fundo);
+    color: var(--texto-escuro);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* ========================================== */
+/* TELAS E TRANSIÇÕES                          */
+/* ========================================== */
+.tela {
+    display: none;
+    min-height: 100vh;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.tela.ativa {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); }
+}
+
+/* ========================================== */
+/* CABEÇALHOS                                  */
+/* ========================================== */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(236, 64, 122, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.cabecalho-secao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(236, 64, 122, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.titulo-principal {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--rosa-profundo);
+    letter-spacing: 1px;
+}
+
+.titulo-inicio {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--rosa-profundo);
+    margin-bottom: 2.5rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* ========================================== */
+/* BOTÕES GERAIS                               */
+/* ========================================== */
+.botao {
+    padding: 0.9rem 2.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transicao);
+    letter-spacing: 0.5px;
+    outline: none;
+}
+
+.botao-sim {
+    background: var(--rosa-escuro);
+    color: var(--branco);
+    box-shadow: 0 4px 15px rgba(236, 64, 122, 0.3);
+}
+
+.botao-sim:hover {
+    background: var(--rosa-profundo);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(236, 64, 122, 0.4);
+}
+
+.botao-nao {
+    background: var(--branco);
+    color: var(--texto-medio);
+    border: 2px solid var(--rosa-medio);
+    box-shadow: 0 2px 8px var(--sombra);
+    position: relative;
+}
+
+.botao-nao:hover {
+    border-color: var(--rosa-escuro);
+    color: var(--rosa-escuro);
+}
+
+.botao-voltar {
+    background: transparent;
+    border: 1px solid var(--rosa-medio);
+    color: var(--rosa-escuro);
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transicao);
+}
+
+.botao-voltar:hover {
+    background: var(--rosa-claro);
+    border-color: var(--rosa-escuro);
+}
+
+.botao-musica {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--rosa-medio);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: var(--transicao);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-musica:hover {
+    background: var(--rosa-claro);
+    transform: scale(1.05);
+}
+
+.botao-musica.mudo {
+    opacity: 0.5;
+}
+
+.espaco {
+    width: 100px;
+}
+
+/* ========================================== */
+/* TELA DE INÍCIO                             */
+/* ========================================== */
+.tela-inicio {
+    justify-content: center;
+    align-items: center;
+    background: var(--gradiente-fundo);
+}
+
+.cartao-inicio {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    max-width: 90%;
+    width: 400px;
+}
+
+.botoes-inicio {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+}
+
+/* ========================================== */
+/* MENU PRINCIPAL                             */
+/* ========================================== */
+.menu-principal {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.botao-menu {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(236, 64, 122, 0.15);
+    border-radius: 16px;
+    font-size: 1.1rem;
+    color: var(--texto-escuro);
+    cursor: pointer;
+    transition: var(--transicao);
+    text-align: left;
+    box-shadow: 0 2px 8px var(--sombra);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.botao-menu:hover {
+    background: var(--branco);
+    border-color: var(--rosa-medio);
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px var(--sombra-media);
+}
+
+/* ========================================== */
+/* SEÇÕES INTERNAS                            */
+/* ========================================== */
+.secao-interna {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.conteudo-dedicatorias,
+.conteudo-midias,
+.conteudo-memorias,
+.conteudo-interacao,
+.conteudo-surpresa {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ========================================== */
+/* DEDICATÓRIAS (CARTAS)                       */
+/* ========================================== */
+.cartas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.carta {
+    background: var(--branco);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px var(--sombra);
+    cursor: pointer;
+    transition: var(--transicao);
+    border: 1px solid rgba(236, 64, 122, 0.08);
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.carta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px var(--sombra-media);
+    border-color: var(--rosa-medio);
+}
+
+.carta-titulo {
+    font-size: 1.2rem;
+    color: var(--rosa-profundo);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.carta-preview {
+    color: var(--texto-medio);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.carta-icone {
+    font-size: 1.5rem;
+    text-align: right;
+    margin-top: 1rem;
+}
+
+/* ========================================== */
+/* MODAIS                                     */
+/* ========================================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    backdrop-filter: blur(3px);
+}
+
+.modal.ativo {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-conteudo {
+    background: var(--branco);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.modal-fechar {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--texto-medio);
+    cursor: pointer;
+    transition: var(--transicao);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-fechar:hover {
+    background: var(--rosa-claro);
+    color: var(--rosa-profundo);
+}
+
+.carta-modal-conteudo h3 {
+    color: var(--rosa-profundo);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.carta-modal-conteudo p {
+    color: var(--texto-escuro);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+#modal-imagem {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 12px var(--sombra);
+}
+
+/* ========================================== */
+/* LIVRO (MÍDIAS)                             */
+/* ========================================== */
+.conteudo-midias {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.livro-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.seta-livro {
+    background: var(--branco);
+    border: 1px solid var(--rosa-medio);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    color: var(--rosa-escuro);
+    cursor: pointer;
+    transition: var(--transicao);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px var(--sombra);
+}
+
+.seta-livro:hover {
+    background: var(--rosa-claro);
+    transform: scale(1.1);
+}
+
+.seta-livro:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.livro {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 3 / 2;
+    perspective: 1500px;
+    position: relative;
+}
+
+.pagina {
+    flex: 1;
+    background: var(--branco);
+    border-radius: 4px 16px 16px 4px;
+    box-shadow: 0 4px 20px var(--sombra-media);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid rgba(236, 64, 122, 0.08);
+}
+
+.pagina.esquerda {
+    border-radius: 16px 4px 4px 16px;
+    background: linear-gradient(to right, #fff8fa, #ffffff);
+}
+
+.pagina.direita {
+    background: linear-gradient(to left, #fff8fa, #ffffff);
+}
+
+.pagina-imagem {
+    max-width: 100%;
+    max-height: 60%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--sombra);
+}
+
+.pagina-titulo {
+    font-size: 1.3rem;
+    color: var(--rosa-profundo);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.pagina-texto {
+    color: var(--texto-medio);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.pagina-video {
+    max-width: 100%;
+    max-height: 60%;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--sombra);
+}
+
+.pagina-vazio {
+    color: var(--texto-medio);
+    font-style: italic;
+}
+
+.contador-paginas {
+    margin-top: 1.5rem;
+    color: var(--texto-medio);
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px var(--sombra);
+}
+
+/* ========================================== */
+/* CALENDÁRIO                                 */
+/* ========================================== */
+.calendario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.calendario-header h3 {
+    font-size: 1.3rem;
+    color: var(--rosa-profundo);
+    font-weight: 500;
+}
+
+.botao-calendario {
+    background: var(--branco);
+    border: 1px solid var(--rosa-medio);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--rosa-escuro);
+    transition: var(--transicao);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-calendario:hover {
+    background: var(--rosa-claro);
+    transform: scale(1.1);
+}
+
+.calendario-grid {
+    background: var(--branco);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px var(--sombra);
+}
+
+.dia-semana {
+    text-align: center;
+    font-weight: 600;
+    color: var(--rosa-escuro);
+    padding: 0.8rem 0;
+    font-size: 0.85rem;
+}
+
+.calendario-dias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.3rem;
+}
+
+.dia-calendario {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: var(--transicao);
+    position: relative;
+    background: transparent;
+    border: none;
+    color: var(--texto-escuro);
+}
+
+.dia-calendario:hover:not(.vazio) {
+    background: var(--rosa-claro);
+}
+
+.dia-calendario.vazio {
+    cursor: default;
+}
+
+.dia-calendario.com-memoria {
+    background: var(--rosa-claro);
+    color: var(--rosa-profundo);
+    font-weight: 600;
+    position: relative;
+}
+
+.dia-calendario.com-memoria::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    width: 6px;
+    height: 6px;
+    background: var(--rosa-escuro);
+    border-radius: 50%;
+}
+
+.dia-calendario.hoje {
+    border: 2px solid var(--rosa-escuro);
+}
+
+/* ========================================== */
+/* MINI JOGO (CORAÇÕES)                        */
+/* ========================================== */
+.jogo-container {
+    text-align: center;
+}
+
+.instrucao-jogo {
+    font-size: 1.1rem;
+    color: var(--texto-medio);
+    margin-bottom: 1rem;
+}
+
+.placar {
+    font-size: 1.2rem;
+    color: var(--rosa-profundo);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.area-coracoes {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin: 0 auto 1.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    border: 2px dashed var(--rosa-medio);
+    overflow: hidden;
+}
+
+.coracao {
+    position: absolute;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    user-select: none;
+    animation: aparecerCoracao 0.5s ease-out;
+}
+
+.coracao:hover {
+    transform: scale(1.2);
+}
+
+.coracao.encontrado {
+    animation: encontrado 0.6s ease-out forwards;
+}
+
+@keyframes aparecerCoracao {
+    from { opacity: 0; transform: scale(0); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes encontrado {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.8; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+.botao-reiniciar {
+    background: var(--rosa-claro);
+    border: 1px solid var(--rosa-medio);
+    color: var(--rosa-profundo);
+    padding: 0.7rem 2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: var(--transicao);
+}
+
+.botao-reiniciar:hover {
+    background: var(--rosa-medio);
+    color: var(--branco);
+}
+
+.mensagem-vitoria {
+    font-size: 1.5rem;
+    color: var(--rosa-profundo);
+    margin-top: 1rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ========================================== */
+/* SURPRESA                                   */
+/* ========================================== */
+.surpresa-container {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.texto-surpresa-intro {
+    font-size: 1.3rem;
+    color: var(--texto-medio);
+    margin-bottom: 2rem;
+}
+
+.botao-surpresa {
+    background: linear-gradient(135deg, var(--rosa-escuro), var(--rosa-profundo));
+    color: var(--branco);
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(236, 64, 122, 0.4);
+    transition: var(--transicao);
+    animation: pulsar 2s ease-in-out infinite;
+}
+
+.botao-surpresa:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(236, 64, 122, 0.5);
+}
+
+@keyframes pulsar {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+.surpresa-revelada {
+    text-align: center;
+    padding: 2rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.texto-surpresa-final {
+    font-size: 1.5rem;
+    color: var(--rosa-profundo);
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* ========================================== */
+/* EFEITOS (COROAÇÕES / CONFETES)             */
+/* ========================================== */
+.efeito-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.efeito-item {
+    position: absolute;
+    animation: cair 3s ease-in forwards;
+    font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+@keyframes cair {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* ========================================== */
+/* RESPONSIVIDADE                             */
+/* ========================================== */
+@media (max-width: 768px) {
+    .titulo-principal {
+        font-size: 1.4rem;
+    }
+
+    .titulo-inicio {
+        font-size: 1.5rem;
+    }
+
+    .cartao-inicio {
+        padding: 2rem;
+        width: 90%;
+    }
+
+    .botoes-inicio {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .botao {
+        width: 100%;
+    }
+
+    .menu-principal {
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .botao-menu {
+        font-size: 1rem;
+        padding: 1rem 1.5rem;
+    }
+
+    .livro {
+        max-width: 100%;
+        aspect-ratio: 2 / 3;
+        flex-direction: column;
+    }
+
+    .pagina {
+        border-radius: 8px;
+        padding: 1.2rem;
+        flex: 1;
+    }
+
+    .pagina.esquerda {
+        border-radius: 12px 12px 4px 4px;
+    }
+
+    .pagina.direita {
+        border-radius: 4px 4px 12px 12px;
+    }
+
+    .livro-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .seta-livro {
+        width: 40px;
+        height: 40px;
+    }
+
+    .area-coracoes {
+        height: 300px;
+    }
+
+    .calendario-grid {
+        padding: 1rem;
+    }
+
+    .dia-semana {
+        font-size: 0.75rem;
+        padding: 0.5rem 0;
+    }
+
+    .dia-calendario {
+        font-size: 0.85rem;
+    }
+
+    .conteudo-dedicatorias,
+    .conteudo-midias,
+    .conteudo-memorias,
+    .conteudo-interacao,
+    .conteudo-surpresa {
+        padding: 1rem;
+    }
+
+    .cartas-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .cabecalho,
+    .cabecalho-secao {
+        padding: 1rem;
+    }
+
+    .titulo-principal {
+        font-size: 1.2rem;
+    }
+
+    .titulo-inicio {
+        font-size: 1.3rem;
+    }
+
+    .area-coracoes {
+        height: 250px;
+    }
+
+    .modal-conteudo {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .texto-surpresa-final {
+        font-size: 1.2rem;
+    }
+}
+
+/* ========================================== */
+/* SCROLLBAR PERSONALIZADA                     */
+/* ========================================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--rosa-claro);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--rosa-medio);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--rosa-escuro);
+}
+
+/* ========================================== */
+/* UTILITÁRIOS                                */
+/* ========================================== */
+.oculto {
+    display: none !important;
+}
