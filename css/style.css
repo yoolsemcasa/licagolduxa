@@ -269,10 +269,12 @@ body::after { right: -2rem; bottom: -4rem; transform: scaleX(2.4) rotate(8deg); 
     box-sizing: border-box;
     text-align: center;
     background: rgba(12, 25, 43, 0.94);
-    border-radius: clamp(20px, 4vw, 28px);
-    box-shadow: 0 18px 60px rgba(194, 24, 91, 0.14);
-    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 2px;
+    box-shadow: 16px 16px 0 #02050a, 20px 20px 0 var(--rosa-escuro);
+    border: 5px solid #02050a;
     position: relative;
+    transform-origin: left center;
+    overflow: hidden;
 }
 
 .cartao-inicio::before {
@@ -280,7 +282,8 @@ body::after { right: -2rem; bottom: -4rem; transform: scaleX(2.4) rotate(8deg); 
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: linear-gradient(125deg, transparent 40%, rgba(56, 189, 248, 0.08));
+    background-image: radial-gradient(rgba(56, 189, 248, 0.22) 1.4px, transparent 1.4px);
+    background-size: 7px 7px;
     pointer-events: none;
 }
 
@@ -291,9 +294,54 @@ body::after { right: -2rem; bottom: -4rem; transform: scaleX(2.4) rotate(8deg); 
     object-position: center 28%;
     display: block;
     margin: 0 auto 1.25rem;
-    border-radius: 18px 4px 18px 4px;
-    border: 2px solid rgba(56, 189, 248, 0.7);
-    box-shadow: 0 0 0 5px rgba(0, 141, 229, 0.1), 0 12px 30px rgba(0, 0, 0, 0.38);
+    border-radius: 0;
+    border: 4px solid #02050a;
+    box-shadow: 7px 7px 0 var(--rosa-escuro);
+    filter: contrast(1.12) saturate(1.15);
+    position: relative;
+    z-index: 1;
+}
+
+.selo-edicao {
+    position: absolute;
+    z-index: 3;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.5rem;
+    color: #02050a;
+    background: #fff;
+    border: 3px solid #02050a;
+    font: 700 0.55rem/1.05 Arial, sans-serif;
+    text-align: left;
+    transform: rotate(-2deg);
+}
+
+.selo-edicao strong {
+    display: grid;
+    place-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    color: #fff;
+    background: #087fd0;
+    border-radius: 50%;
+    font-size: 0.85rem;
+}
+
+.chamada-capa {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    margin-bottom: 0.55rem;
+    padding: 0.25rem 0.55rem;
+    color: #02050a;
+    background: var(--rosa-profundo);
+    border: 2px solid #02050a;
+    font: 800 0.72rem/1.1 Arial, sans-serif;
+    letter-spacing: 0.08em;
+    transform: rotate(-1deg);
 }
 
 @keyframes pulsarFofo {
@@ -303,12 +351,17 @@ body::after { right: -2rem; bottom: -4rem; transform: scaleX(2.4) rotate(8deg); 
 
 .titulo-inicio {
     font-size: clamp(1.4rem, 5vw, 2.6rem);
-    font-weight: 300;
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-weight: 900;
     color: var(--rosa-profundo);
     margin-bottom: 0.65rem;
     text-align: center;
-    letter-spacing: 0.5px;
-    line-height: 1.2;
+    letter-spacing: 0.04em;
+    line-height: 0.86;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 0 #02050a;
+    position: relative;
+    z-index: 1;
 }
 
 .subtitulo-inicio {
@@ -316,6 +369,9 @@ body::after { right: -2rem; bottom: -4rem; transform: scaleX(2.4) rotate(8deg); 
     margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
     color: var(--texto-medio);
     font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
 }
 
 .botoes-inicio {
@@ -1038,7 +1094,7 @@ body::after { right: -2rem; bottom: -4rem; transform: scaleX(2.4) rotate(8deg); 
         flex-direction: column;
     }
 
-    .botao {
+.botao {
         width: 100%;
         padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
         font-size: clamp(0.95rem, 2vw, 1.05rem);
@@ -1265,3 +1321,173 @@ body::after { right: -2rem; bottom: -4rem; transform: scaleX(2.4) rotate(8deg); 
 ::-webkit-scrollbar-track { background: #081321; }
 ::-webkit-scrollbar-thumb { background: #245b8c; }
 ::-webkit-scrollbar-thumb:hover { background: #008de5; }
+
+/* ========================================== */
+/* ACABAMENTO DE HQ IMPRESSA                  */
+/* ========================================== */
+body.hq-abrindo {
+    overflow: hidden;
+}
+
+body.hq-abrindo::after {
+    content: "WHOOSH!";
+    z-index: 9998;
+    right: 8vw;
+    bottom: 10vh;
+    color: #fff;
+    font: italic 900 clamp(2.5rem, 9vw, 7rem)/1 Impact, 'Arial Black', sans-serif;
+    letter-spacing: -0.04em;
+    text-shadow: 5px 5px 0 #087fd0, 9px 9px 0 #02050a;
+    transform: rotate(-8deg);
+}
+
+#tela-menu,
+.secao-interna {
+    background-color: #dfe6ed;
+    background-image:
+        radial-gradient(rgba(2, 5, 10, 0.12) 0.85px, transparent 0.85px),
+        linear-gradient(120deg, rgba(56, 189, 248, 0.07), transparent 45%);
+    background-size: 5px 5px, auto;
+    border: 8px solid #02050a;
+}
+
+.cabecalho,
+.cabecalho-secao {
+    background: #f7f7f2;
+    border-bottom: 5px solid #02050a;
+    box-shadow: none;
+    color: #02050a;
+}
+
+.numero-edicao {
+    display: block;
+    margin-bottom: 0.1rem;
+    color: #202832;
+    font: 800 0.58rem/1 Arial, sans-serif;
+    letter-spacing: 0.16em;
+}
+
+.titulo-principal,
+.cabecalho-secao h2 {
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 #02050a;
+}
+
+.menu-principal::before {
+    content: "ESCOLHA O PRÓXIMO QUADRO";
+    align-self: flex-start;
+    margin-bottom: -0.55rem;
+    color: #02050a;
+    font: 900 0.82rem/1 Arial, sans-serif;
+    letter-spacing: 0.08em;
+}
+
+.legenda-quadro {
+    align-self: flex-start;
+    max-width: 390px;
+    padding: 0.55rem 0.75rem;
+    color: #02050a;
+    background: #d8f35a;
+    border: 3px solid #02050a;
+    box-shadow: 5px 5px 0 #02050a;
+    font: 800 0.7rem/1.3 Arial, sans-serif;
+    letter-spacing: 0.04em;
+    transform: rotate(-0.8deg);
+}
+
+.botao-menu {
+    color: #f2f8ff;
+    border: 4px solid #02050a;
+    border-radius: 0;
+    box-shadow: 7px 7px 0 #02050a;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.botao-menu:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 4px 4px 0 #02050a;
+}
+
+.detalhes-nightwing span {
+    color: #02050a;
+    background: #f7f7f2;
+    border: 2px solid #02050a;
+    border-radius: 0;
+    font-weight: 800;
+    box-shadow: 3px 3px 0 #02050a;
+}
+
+.painel-nightwing {
+    border-left: 7px solid #02050a;
+    filter: contrast(1.08) saturate(1.08);
+}
+
+.painel-nightwing::after {
+    content: "FLYING GRAYSON";
+    position: absolute;
+    z-index: 2;
+    top: 2rem;
+    right: 1.5rem;
+    padding: 0.35rem 0.6rem;
+    color: #02050a;
+    background: #fff;
+    border: 3px solid #02050a;
+    box-shadow: 5px 5px 0 #087fd0;
+    font: italic 900 0.75rem/1 Impact, sans-serif;
+    letter-spacing: 0.08em;
+    transform: rotate(3deg);
+}
+
+.carta,
+.calendario-grid,
+.jogo-container,
+.surpresa-container,
+.modal-conteudo,
+.pagina,
+.contador-paginas {
+    border: 4px solid #02050a;
+    border-radius: 0;
+    box-shadow: 8px 8px 0 #02050a;
+}
+
+.pagina.esquerda,
+.pagina.direita {
+    background-image: radial-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px), linear-gradient(145deg, #13233a, #0d192a);
+    background-size: 6px 6px, auto;
+}
+
+.pagina-titulo,
+.carta-titulo,
+.calendario-header h3 {
+    font-family: Impact, 'Arial Black', sans-serif;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.pagina-imagem,
+.pagina-video,
+#modal-imagem {
+    border: 3px solid #02050a;
+    border-radius: 0;
+    filter: contrast(1.08) saturate(1.08);
+}
+
+@media (max-width: 768px) {
+    #tela-menu,
+    .secao-interna {
+        border-width: 4px;
+    }
+
+    .painel-nightwing::after {
+        display: none;
+    }
+
+    .cartao-inicio {
+        box-shadow: 9px 9px 0 #02050a, 12px 12px 0 var(--rosa-escuro);
+    }
+}

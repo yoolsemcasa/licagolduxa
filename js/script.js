@@ -259,15 +259,17 @@ function inicializarTelaInicio() {
         }
 
         const cartao = document.querySelector('.cartao-inicio');
-        cartao.style.transition = 'all 0.6s ease-out';
+        document.body.classList.add('hq-abrindo');
+        cartao.style.transition = 'all 0.75s cubic-bezier(.65,0,.35,1)';
         cartao.style.opacity = '0';
-        cartao.style.transform = 'scale(0.9)';
+        cartao.style.transform = 'perspective(1400px) rotateY(-82deg) translateX(-25%)';
 
         setTimeout(() => {
             mostrarTela('tela-menu');
             // Atualizar título
             document.title = CONFIG.tituloSite;
-        }, 600);
+            document.body.classList.remove('hq-abrindo');
+        }, 760);
     });
 
     // Botão "Não" foge do cursor
