@@ -52,6 +52,13 @@ const CONFIG = {
     paginasLivro: [
         {
             tipo: "imagem",
+            titulo: "Alicia & Ricky",
+            texto: "Je t'aime, mon amour 💛",
+            arquivo: "assets/fotos/alicia-ricky.png",
+            imagemEsquerda: null
+        },
+        {
+            tipo: "imagem",
             titulo: "Asa Noturna",
             texto: "Dick Grayson encontrou seu próprio símbolo e se tornou o protetor de Blüdhaven.",
             arquivo: "assets/tema/nightwing-leaping-light.jpg",
