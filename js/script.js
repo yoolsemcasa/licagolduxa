@@ -51,6 +51,34 @@ const CONFIG = {
     // Para adicionar uma nova página, copie um objeto dentro do array.
     paginasLivro: [
         {
+            tipo: "imagem",
+            titulo: "Asa Noturna",
+            texto: "Dick Grayson encontrou seu próprio símbolo e se tornou o protetor de Blüdhaven.",
+            arquivo: "assets/tema/nightwing-leaping-light.jpg",
+            imagemEsquerda: null
+        },
+        {
+            tipo: "imagem",
+            titulo: "Movimento e liberdade",
+            texto: "A agilidade de um acrobata e a coragem de quem escolheu seguir seu próprio caminho.",
+            arquivo: "assets/tema/nightwing-87.jpg",
+            imagemEsquerda: null
+        },
+        {
+            tipo: "imagem",
+            titulo: "Uma cidade em azul",
+            texto: "Sob as luzes de Blüdhaven, o azul sempre anuncia que seu protetor chegou.",
+            arquivo: "assets/tema/nightwing-acao.jpg",
+            imagemEsquerda: null
+        },
+        {
+            tipo: "imagem",
+            titulo: "O símbolo",
+            texto: "Uma identidade construída fora da sombra do Morcego.",
+            arquivo: "assets/tema/nightwing-back-in-blue.jpg",
+            imagemEsquerda: null
+        },
+        {
             tipo: "texto",
             titulo: "Nosso começo",
             texto: "Tudo começou de uma forma tão especial...",
@@ -90,7 +118,7 @@ const CONFIG = {
 
     // --- Interação (Jogo) ---
     totalCoracoes: 10,
-    mensagemVitoria: "Você encontrou todos. ❤️",
+    mensagemVitoria: "Missão cumprida. Você encontrou todos! ⚡",
 
     // --- Surpresa ---
     mensagemSurpresa: "Eu te amo mais do que palavras podem expressar. Você é a pessoa mais incrível que já conheci, e todos os dias ao seu lado são um presente. Obrigado por existir e por ser você! ❤️✨",
@@ -217,6 +245,19 @@ function inicializarTelaInicio() {
     const btnNao = $('btn-nao');
 
     btnSim.addEventListener('click', () => {
+        // O clique do usuário permite que a música comece sem ser bloqueada
+        // pela política de reprodução automática do navegador.
+        if (estado.audio && !estado.tocandoMusica) {
+            estado.audio.play().then(() => {
+                estado.tocandoMusica = true;
+                const btnMusica = $('btn-musica');
+                btnMusica.textContent = '🔊';
+                btnMusica.classList.remove('mudo');
+            }).catch(() => {
+                // O site continua normalmente caso o navegador bloqueie o áudio.
+            });
+        }
+
         const cartao = document.querySelector('.cartao-inicio');
         cartao.style.transition = 'all 0.6s ease-out';
         cartao.style.opacity = '0';
@@ -612,7 +653,7 @@ function gerarCoracoes() {
     for (let i = 0; i < total; i++) {
         const coracao = document.createElement('span');
         coracao.className = 'coracao';
-        coracao.textContent = '❤️';
+        coracao.textContent = '🔷';
 
         // Posição aleatória dentro da área
         const areaRect = area.getBoundingClientRect();
@@ -645,13 +686,13 @@ function gerarCoracoes() {
 
 function atualizarPlacar() {
     const placar = $('placar');
-    placar.textContent = `Corações encontrados: ${estado.coracoesEncontrados} / ${CONFIG.totalCoracoes}`;
+    placar.textContent = `Símbolos encontrados: ${estado.coracoesEncontrados} / ${CONFIG.totalCoracoes}`;
 }
 
 function vitoriaJogo() {
     const area = $('area-coracoes');
     area.innerHTML = `<p class="mensagem-vitoria">${CONFIG.mensagemVitoria}</p>`;
-    criarEfeito('❤️', 20);
+    criarEfeito('⚡', 20);
 }
 
 // ============================================================
@@ -664,8 +705,8 @@ function inicializarSurpresa() {
         $('texto-surpresa-final').textContent = CONFIG.mensagemSurpresa;
 
         // Efeito de corações/confetes
-        criarEfeito('❤️', 30);
-        setTimeout(() => criarEfeito('✨', 20), 1000);
+        criarEfeito('🪽', 30);
+        setTimeout(() => criarEfeito('⚡', 20), 1000);
     });
 }
 

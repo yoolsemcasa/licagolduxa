@@ -13,7 +13,9 @@
     <!-- ========================================== -->
     <div id="tela-inicio" class="tela tela-inicio ativa">
         <div class="cartao-inicio">
+            <img class="retrato-nightwing" src="assets/tema/asa-noturna-oficial.jpg" alt="Asa Noturna">
             <h1 class="titulo-inicio">Você deseja abrir?</h1>
+            <p class="subtitulo-inicio">Preparei um cantinho cheio de carinho para você ✨</p>
             <div class="botoes-inicio">
                 <button id="btn-sim" class="botao botao-sim">Sim</button>
                 <button id="btn-nao" class="botao botao-nao">Não</button>
@@ -26,16 +28,33 @@
     <!-- ========================================== -->
     <div id="tela-menu" class="tela">
         <header class="cabecalho">
-            <h1 class="titulo-principal">Nosso Cantinho</h1>
+            <div class="marca-site">
+                <span class="marca-coracao" aria-hidden="true">V</span>
+                <h1 class="titulo-principal">Nosso Cantinho</h1>
+            </div>
             <button id="btn-musica" class="botao-musica" title="Música">🔊</button>
         </header>
 
+        <figure class="painel-nightwing" aria-label="Asa Noturna, protetor de Blüdhaven">
+            <img src="assets/tema/nightwing-acao.jpg" alt="Ilustração oficial do Asa Noturna diante de Blüdhaven">
+            <figcaption>
+                <span>PROTETOR DE</span>
+                <strong>BLÜDHAVEN</strong>
+            </figcaption>
+        </figure>
+
         <main class="menu-principal">
-            <button class="botao-menu" data-secao="dedicatorias">💌 Dedicatórias</button>
-            <button class="botao-menu" data-secao="midias">📖 Mídias</button>
+            <button class="botao-menu" data-secao="dedicatorias">📨 Dedicatórias</button>
+            <button class="botao-menu" data-secao="midias">📁 Mídias</button>
             <button class="botao-menu" data-secao="memorias">🗓️ Memórias</button>
-            <button class="botao-menu" data-secao="interacao">🎮 Interação</button>
+            <button class="botao-menu" data-secao="interacao">⚡ Interação</button>
             <button class="botao-menu" data-secao="surpresa">🎁 Surpresa</button>
+            <div class="detalhes-nightwing" aria-label="Referências ao Asa Noturna">
+                <span>⚡ Dick Grayson</span>
+                <span>🏙️ Blüdhaven</span>
+                <span>🥢 Bastões de escrima</span>
+                <span>🎪 Ex-acrobata</span>
+            </div>
         </main>
     </div>
 
@@ -114,8 +133,8 @@
         </header>
         <main class="conteudo-interacao">
             <div class="jogo-container" id="jogo-container">
-                <p class="instrucao-jogo">Clique nos corações para encontrá-los!</p>
-                <p class="placar" id="placar">Corações encontrados: 0 / 10</p>
+                <p class="instrucao-jogo">Encontre todos os símbolos azuis!</p>
+                <p class="placar" id="placar">Símbolos encontrados: 0 / 10</p>
                 <div class="area-coracoes" id="area-coracoes"></div>
                 <button class="botao-reiniciar" id="btn-reiniciar-jogo">Reiniciar</button>
             </div>
