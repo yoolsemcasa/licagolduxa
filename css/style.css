@@ -18,7 +18,7 @@
     --texto-medio: #7a7a7a;
     --sombra: rgba(0, 0, 0, 0.08);
     --sombra-media: rgba(0, 0, 0, 0.12);
-    --gradiente-fundo: linear-gradient(135deg, #fff5f8 0%, #fce4ec 100%);
+    --gradiente-fundo: linear-gradient(145deg, #fff9fc 0%, #ffeaf2 48%, #f8eaff 100%);
     --transicao: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -39,7 +39,22 @@ body {
     padding: 0;
     overflow-x: hidden;
     line-height: 1.6;
+    background-attachment: fixed;
 }
+
+body::before,
+body::after {
+    content: "♡";
+    position: fixed;
+    z-index: -1;
+    color: rgba(236, 64, 122, 0.1);
+    font-size: clamp(8rem, 22vw, 18rem);
+    line-height: 1;
+    pointer-events: none;
+}
+
+body::before { top: -3rem; left: -2rem; transform: rotate(-18deg); }
+body::after { right: -2rem; bottom: -4rem; transform: rotate(16deg); }
 
 /* ========================================== */
 /* TELAS E TRANSIÇÕES                          */
@@ -57,7 +72,7 @@ body {
     flex-direction: column;
 }
 
-.tela.tela-inicio {
+.tela.tela-inicio.ativa {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,15 +102,16 @@ body {
     padding: 1.5rem 2rem;
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(236, 64, 122, 0.1);
+    border-bottom: 1px solid rgba(236, 64, 122, 0.12);
+    box-shadow: 0 6px 24px rgba(194, 24, 91, 0.06);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
 .cabecalho-secao {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 1.2rem 2rem;
     background: rgba(255, 255, 255, 0.85);
@@ -104,6 +120,17 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: 0 6px 24px rgba(194, 24, 91, 0.06);
+}
+
+.cabecalho-secao h2 {
+    color: var(--rosa-profundo);
+    font-size: clamp(1.15rem, 3vw, 1.5rem);
+    text-align: center;
+}
+
+.cabecalho-secao .espaco {
+    justify-self: end;
 }
 
 .titulo-principal {
@@ -154,19 +181,30 @@ body {
 }
 
 .botao-voltar {
-    background: transparent;
-    border: 1px solid var(--rosa-medio);
-    color: var(--rosa-escuro);
-    padding: 0.5rem 1.2rem;
-    border-radius: 30px;
+    justify-self: start;
+    width: auto;
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(236, 64, 122, 0.22);
+    color: var(--rosa-profundo);
+    padding: 0.55rem 1rem;
+    border-radius: 12px;
     cursor: pointer;
     font-size: 0.9rem;
+    font-weight: 500;
     transition: var(--transicao);
+    box-shadow: 0 3px 10px rgba(194, 24, 91, 0.07);
 }
 
 .botao-voltar:hover {
-    background: var(--rosa-claro);
+    background: var(--branco);
     border-color: var(--rosa-escuro);
+    transform: translateX(-2px);
+    box-shadow: 0 5px 14px rgba(194, 24, 91, 0.12);
 }
 
 .botao-musica {
@@ -203,7 +241,22 @@ body {
     text-align: center;
     background: rgba(255, 255, 255, 0.95);
     border-radius: clamp(20px, 4vw, 28px);
-    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 18px 60px rgba(194, 24, 91, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    position: relative;
+}
+
+.cartao-inicio::before {
+    content: "💗";
+    display: block;
+    margin-bottom: 0.7rem;
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    animation: pulsarFofo 2s ease-in-out infinite;
+}
+
+@keyframes pulsarFofo {
+    0%, 100% { transform: scale(1) rotate(-4deg); }
+    50% { transform: scale(1.1) rotate(4deg); }
 }
 
 .titulo-inicio {
@@ -235,7 +288,7 @@ body {
     align-items: center;
     gap: 1.2rem;
     padding: 2rem;
-    max-width: 500px;
+    max-width: 560px;
     margin: 0 auto;
     width: 100%;
 }
@@ -245,13 +298,13 @@ body {
     padding: 1.2rem 2rem;
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(236, 64, 122, 0.15);
-    border-radius: 16px;
+    border-radius: 22px;
     font-size: 1.1rem;
     color: var(--texto-escuro);
     cursor: pointer;
     transition: var(--transicao);
     text-align: left;
-    box-shadow: 0 2px 8px var(--sombra);
+    box-shadow: 0 8px 24px rgba(194, 24, 91, 0.08);
     display: flex;
     align-items: center;
     gap: 0.8rem;
@@ -260,7 +313,7 @@ body {
 .botao-menu:hover {
     background: var(--branco);
     border-color: var(--rosa-medio);
-    transform: translateX(5px);
+    transform: translateY(-4px) scale(1.015);
     box-shadow: 0 4px 15px var(--sombra-media);
 }
 
@@ -284,6 +337,15 @@ body {
     width: 100%;
 }
 
+.conteudo-dedicatorias,
+.conteudo-memorias,
+.conteudo-interacao,
+.conteudo-surpresa {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /* ========================================== */
 /* DEDICATÓRIAS (CARTAS)                       */
 /* ========================================== */
@@ -296,12 +358,12 @@ body {
 
 .carta {
     background: var(--branco);
-    border-radius: 16px;
+    border-radius: 24px;
     padding: 2rem;
     box-shadow: 0 4px 15px var(--sombra);
     cursor: pointer;
     transition: var(--transicao);
-    border: 1px solid rgba(236, 64, 122, 0.08);
+    border: 1px solid rgba(236, 64, 122, 0.12);
     min-height: 180px;
     display: flex;
     flex-direction: column;

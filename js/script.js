@@ -125,6 +125,11 @@ function $(id) {
 }
 
 function mostrarTela(idTela) {
+    // Cada tela deve começar do topo, independentemente da posição anterior.
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
     document.querySelectorAll('.tela').forEach(tela => {
         tela.classList.remove('ativa');
     });
@@ -132,6 +137,9 @@ function mostrarTela(idTela) {
     if (tela) {
         tela.classList.add('ativa');
         estado.telaAtual = idTela.replace('tela-', '');
+
+        // Garante o topo também após o navegador recalcular a nova tela.
+        requestAnimationFrame(() => window.scrollTo(0, 0));
     }
 }
 
