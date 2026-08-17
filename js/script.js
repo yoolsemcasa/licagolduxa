@@ -59,50 +59,44 @@ const CONFIG = {
         },
         {
             tipo: "imagem",
-            titulo: "Asa Noturna",
-            texto: "Dick Grayson encontrou seu próprio símbolo e se tornou o protetor de Blüdhaven.",
-            arquivo: "assets/tema/nightwing-leaping-light.jpg",
+            titulo: "Nossa missão favorita",
+            texto: "Entre missões e segredos, eu escolheria você em todas as vidas. 🖤",
+            arquivo: "assets/fotos/alicia-ricky-elegante-escuro.png",
             imagemEsquerda: null
         },
         {
             tipo: "imagem",
-            titulo: "Movimento e liberdade",
-            texto: "A agilidade de um acrobata e a coragem de quem escolheu seguir seu próprio caminho.",
-            arquivo: "assets/tema/nightwing-87.jpg",
+            titulo: "29.08 — Sempre nós",
+            texto: "Mesmo em silêncio, meu coração sempre encontra o caminho até você. 🤍",
+            arquivo: "assets/fotos/alicia-ricky-29-08.png",
             imagemEsquerda: null
         },
         {
             tipo: "imagem",
-            titulo: "Uma cidade em azul",
-            texto: "Sob as luzes de Blüdhaven, o azul sempre anuncia que seu protetor chegou.",
-            arquivo: "assets/tema/nightwing-acao.jpg",
+            titulo: "Um presente chamado amor",
+            texto: "Entre implicâncias, risadas e carinho, meu lugar preferido sempre será ao seu lado. 💌",
+            arquivo: "assets/fotos/alicia-ricky-fofinho.png",
             imagemEsquerda: null
         },
         {
             tipo: "imagem",
-            titulo: "O símbolo",
-            texto: "Uma identidade construída fora da sombra do Morcego.",
-            arquivo: "assets/tema/nightwing-back-in-blue.jpg",
-            imagemEsquerda: null
-        },
-        {
-            tipo: "texto",
-            titulo: "Nosso começo",
-            texto: "Tudo começou de uma forma tão especial...",
+            titulo: "Almas gêmeas",
+            texto: "Você é a única missão que eu escolheria nunca terminar. ✨",
+            arquivo: "assets/fotos/alicia-ricky-elegante-claro.png",
             imagemEsquerda: null
         },
         {
             tipo: "imagem",
-            titulo: "Primeiro encontro",
-            texto: "O dia em que nossos olhares se cruzaram e tudo mudou.",
-            arquivo: "assets/fotos/midia1.png",
+            titulo: "Meu melhor presente",
+            texto: "Nem a distância, nem qualquer batalha seria capaz de me afastar de você. 🧡",
+            arquivo: "assets/fotos/alicia-ricky-ninjas.png",
             imagemEsquerda: null
         },
         {
             tipo: "imagem",
-            titulo: "Nossa viagem",
-            texto: "Lembranças que guardo no coração para sempre.",
-            arquivo: "assets/fotos/midia2.png",
+            titulo: "Um ano de nós",
+            texto: "Nossa história é o conto favorito que eu escolheria viver para sempre. ❤️",
+            arquivo: "assets/fotos/lica-ricky-um-ano.png",
             imagemEsquerda: null
         }
     ],
@@ -204,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarModais();
 
     // Inicializar total de páginas do livro
-    estado.totalPaginasLivro = Math.ceil(CONFIG.paginasLivro.length / 2);
+    estado.totalPaginasLivro = CONFIG.paginasLivro.length;
 });
 
 // ============================================================
@@ -484,8 +478,7 @@ function inicializarLivro() {
 }
 
 function atualizarLivro() {
-    const indiceEsquerda = estado.paginaLivroAtual * 2;
-    const indiceDireita = indiceEsquerda + 1;
+    const indiceEsquerda = estado.paginaLivroAtual;
 
     const paginaEsquerda = $('pagina-esquerda');
     const paginaDireita = $('pagina-direita');
@@ -499,13 +492,8 @@ function atualizarLivro() {
         paginaEsquerda.innerHTML = '<span class="pagina-vazio">—</span>';
     }
 
-    // Página direita
-    if (indiceDireita < CONFIG.paginasLivro.length) {
-        const pagina = CONFIG.paginasLivro[indiceDireita];
-        paginaDireita.innerHTML = renderizarPagina(pagina);
-    } else {
-        paginaDireita.innerHTML = '<span class="pagina-vazio">—</span>';
-    }
+    // O álbum usa uma página horizontal por vez para preservar os banners.
+    paginaDireita.innerHTML = '';
 
     // Atualizar contador
     const numPagina = estado.paginaLivroAtual + 1;
