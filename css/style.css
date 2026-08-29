@@ -1038,16 +1038,95 @@ body::after { right: -2rem; bottom: -4rem; transform: scaleX(2.4) rotate(8deg); 
 }
 
 .surpresa-revelada {
-    text-align: center;
-    padding: 2rem;
+    width: min(100%, 780px);
+    margin: 0 auto;
+    padding: clamp(0.25rem, 2vw, 1rem);
     animation: fadeIn 0.8s ease-out;
 }
 
+.carta-surpresa {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(1.5rem, 5vw, 3.5rem);
+    color: #dceeff;
+    background:
+        linear-gradient(rgba(13, 25, 42, 0.94), rgba(7, 16, 29, 0.97)),
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.3), transparent 45%);
+    border: 4px solid #02050a;
+    box-shadow: 8px 8px 0 #02050a, inset 0 0 0 2px rgba(56, 189, 248, 0.24);
+}
+
+.carta-surpresa::before,
+.carta-surpresa::after {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border: 2px solid rgba(56, 189, 248, 0.22);
+    transform: rotate(45deg);
+}
+
+.carta-surpresa::before { top: -55px; left: -55px; }
+.carta-surpresa::after { right: -55px; bottom: -55px; }
+
+.carta-surpresa-detalhe {
+    display: block;
+    color: #38bdf8;
+    font-size: 2rem;
+    line-height: 1;
+    text-align: center;
+}
+
+.carta-surpresa-saudacao {
+    margin: 0.65rem 0 0;
+    color: #8dd8ff;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.carta-surpresa h3 {
+    margin: 0.55rem 0 2rem;
+    color: #ffffff;
+    font: italic 900 clamp(1.8rem, 6vw, 3.2rem)/1 Impact, 'Arial Black', sans-serif;
+    letter-spacing: 0.035em;
+    text-align: center;
+    text-shadow: 3px 3px 0 #087fd0;
+    text-transform: uppercase;
+}
+
 .texto-surpresa-final {
-    font-size: 1.5rem;
-    color: var(--rosa-profundo);
-    line-height: 1.8;
-    font-weight: 300;
+    font-size: clamp(0.98rem, 2vw, 1.08rem);
+    line-height: 1.85;
+    text-align: left;
+}
+
+.texto-surpresa-final p {
+    margin: 0 0 1.25em;
+}
+
+.texto-surpresa-final p:first-child::first-letter {
+    float: left;
+    margin: 0.08em 0.12em 0 0;
+    color: #38bdf8;
+    font: 900 3.5em/0.78 Georgia, serif;
+}
+
+.texto-surpresa-final p:last-child {
+    margin-bottom: 0;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.carta-surpresa-assinatura {
+    width: fit-content;
+    margin: 2.5rem 0 0 auto;
+    padding-top: 0.75rem;
+    color: #8dd8ff;
+    border-top: 2px solid rgba(56, 189, 248, 0.4);
+    font: italic 700 1.05rem Georgia, serif;
 }
 
 /* ========================================== */
@@ -1209,7 +1288,11 @@ body::after { right: -2rem; bottom: -4rem; transform: scaleX(2.4) rotate(8deg); 
     }
 
     .texto-surpresa-final {
-        font-size: 1.2rem;
+        line-height: 1.72;
+    }
+
+    .carta-surpresa {
+        box-shadow: 5px 5px 0 #02050a, inset 0 0 0 2px rgba(56, 189, 248, 0.24);
     }
 }
 

@@ -113,28 +113,48 @@ const CONFIG = {
         }
     ],
 
-    // --- Memórias ---
-    // Formato: "AAAA-MM-DD"
-    // ADICIONE SUAS MEMÓRIAS AQUI!
-    memorias: {
-        "2026-08-13": {
-            titulo: "Dia especial",
-            texto: "Hoje é um dia muito importante para nós! ❤️",
-            imagem: null
-        },
-        "2026-12-25": {
-            titulo: "Natal juntos",
-            texto: "O primeiro Natal que passamos juntos, cheio de amor e alegria.",
-            imagem: "assets/memorias/midia3.png"
-        }
-    },
-
     // --- Interação (Jogo) ---
     totalCoracoes: 10,
     mensagemVitoria: "Missão cumprida. Você encontrou todos! ⚡",
 
     // --- Surpresa ---
-    mensagemSurpresa: "Eu te amo mais do que palavras podem expressar. Você é a pessoa mais incrível que já conheci, e todos os dias ao seu lado são um presente. Obrigado por existir e por ser você! ❤️✨",
+    mensagemSurpresa: `OIII MEU AMOR, TUDO BEM? antes de tudo, eu queria muito te agradecer pela incrível pessoa que você é pra mim, de como minha vida melhorou desde o dia que passamos a conversar e de como você me salva e me faz extremamente bem todos os dias. todas as noites ficam tranquilas e incríveis se recebo um boa noite seu e vou dormir feliz sabendo que, no outro dia, sempre vai ter o melhor bom dia do mundo, que é o seu, o tornando realmente bom (ou até mais do que isso).
+
+Eu também quero agradecer por você sempre ter sido, continua sendo, uma pessoa maravilhosa, perfeita, incrível, extremamente boa, especial, amável, gentil, generosa, carinhoso, amigável, confiável, meu melhor amigo, meu amor, acolhedor e valioso pra mim e nunca ter me feito pensar que sou alguém difícil de lidar.
+
+Eu me sinto tão bem e confortável com você que passa a ser a melhor definição de “se sentir nas nuvens”, mesmo que essa sensação seja totalmente indiscritível, acho que consigo usar essa expressão só pra ter uma “base”.
+
+Ficar sem você parece a maior tortura do mundo. Sempre que você vai dormir, as noites e as madrugadas parecem se tornar uma eternidade que, sinceramente, eu desejo que acabe em milésimos, porque segundos ainda é muito.
+
+o meu maior sonho é poder te encontrar, casar com você e ficar contigo pra sempre, ficar pra sempre te amando, te enchendo de beijos, abraços e tudo que há de bom nesse mundo.
+
+Quando você me diz algo negativo sobre si mesmo, mesmo que brincando, eu fico com uma vontade enorme de arrancar meus olhos, meus ouvidos e te passar todos os meus pensamentos pra você ver o quanto você é incrível, importante e essencial pra mim, sua família e para todos ao seu redor.
+
+eu queria poder conseguir fazer você ver o quanto eu te amo mas, é muito difícil descrever em palavras algo que nem limite ou uma mínima definição tem.
+
+Eu amo suas palhaçadas, sua risada, quando você usa meu vocabulário, a sua sinceridade com tudo, amo ser amada por você, sua presença, sua alegria, amo saber tudo sobre você, amo sempre escutar sobre coisas que você gosta, a forma que você é comigo me faz bem e me faz encontrar conforto, amo sempre acordar e ter mensagens suas, independente do horário, amo sempre quando nos resolvemos após alguma discussão, amo escutar sua voz, amo receber mensagens suas, amo poder te chamar de amor, amo amar nosso relacionamento, amo como você confia em mim pra dizer sobre você, amo tudo que remeta você, amo ficar em call com você, amo lembrar de qualquer interação nossa (mesmo que eu desgoste da minha parte, já que eu não sabia conversar), amo seus olhos, amo seu cabelo, amo quando você vem me contar que comeu muito depois de alguma refeição, amo escutar você dizer sobre algo que gosta, amo ouvir suas explicações, amo o quanto você é inteligente, amo poder conversar com você, amo o fato que ao mesmo tempo que somos namorados, também somos melhores amigos, que é o que melhora tudo na nossa relação
+
+resumindo(se não, eu faria uma parte imensa só pra dizer o que eu amo em você e no nosso relacionamento), eu amo tudo que tenha você e nós.
+
+Quero que saiba que, nada no mundo me faria te amar menos ou parar de te amar. seja a distância, castigos (0 comentários), discussões, pessoas de fora ou o que for, porque você é o amor da minha vida, e eu nunca parei de te amar ou dizer isso por quaisquer um desses motivos.
+
+quero também que esse seja o nosso primeiro de muitos aniversários de namoro e que eu possa me casar com você algum dia e que seja o casamento mais lindo de todos, com a nossa futura família.
+
+você é a pessoa mais importante do mundo e que eu mais amo, aquele que eu sempre vou desejar em horas iguais ou 04:47, em velas, quando cair um cílios dos meus olhos, quando eu ver uma estrela cadente ou o que for. todas as vezes que eu desejei alguém que me amasse e me trouxesse paz, foram atendidas, e você veio. veio e transformou minha vida em algo completamente diferente, mostrando que, tudo com você se torna “novo”. até mesmo um “eu te amo”, que eu sempre escuto, parece a primeira vez.
+
+estar com você me mostrou o que é ser amada e amar de verdade, a leveza e como é realmente um relacionamento. me trouxe outras visões e registrou coisas incríveis na minha memória, que eu vou levar pra sempre comigo.
+
+Bom, acredito que o texto esteja ficando beeem longo e eu ainda não consegui dizer nem 1% do meu amor por você, se não eu ficaria mais de horas, dias e semanas escrevendo (o que não seria problema algum). mas, eu te amo muito meu amor.
+
+eu sempre desejo o melhor pra você, desejo estar sempre aqui pra tudo que você precisar, independente do que ou quando for
+
+você é o amor da minha vida toda e meu peito dói de tanto te amar. eu nunca pensei que era possível amar alguém tanto assim, até você chegar. o amor realmente é uma das melhores sensações do mundo quando se vive ele com a pessoa certa e no momento certo e você é a prova viva disso, meu bem.
+
+você está em todas as partes boas da minha vida e é sempre quem eu desejo conversar sempre que posso, independente se for algo bom ou ruim. gosto quando ficamos bem depois de uma fase ruim, porque quando passamos por algo turbulento/negativo, eu vejo que aquilo foi necessário para que possamos notar melhora ou que estamos bem um com o outro. não digo que brigas constantemente são necessárias, mas desentendimentos acontecem, conseguimos passar por eles e tá tudo bem.
+
+acredito que, uma das partes mais gostosas de estar contigo é poder escutar ou ler comentários positivos, dizendo que somos um bom casal, um casal duradouro, entre outros.
+
+bem, eu acabei desfocando ali no que era pra ser o final, e peço perdão por isso. mas, agora é sério. eu te amo muito meu bebê e feliz 1 ano de nóss`,
 
     // --- Música ---
     arquivoMusica: "assets/music.mp3"
@@ -149,8 +169,6 @@ let estado = {
     naoDificil: false,
     paginaLivroAtual: 0,
     totalPaginasLivro: 0,
-    mesCalendario: new Date().getMonth(),
-    anoCalendario: new Date().getFullYear(),
     coracoesEncontrados: 0,
     surpresaAberta: false,
     tocandoMusica: false,
@@ -204,7 +222,6 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarMenu();
     inicializarDedicatorias();
     inicializarLivro();
-    inicializarCalendario();
     inicializarMiniJogo();
     inicializarSurpresa();
     inicializarModais();
@@ -356,7 +373,6 @@ function inicializarMenu() {
             const telaMap = {
                 'dedicatorias': 'tela-dedicatorias',
                 'midias': 'tela-midias',
-                'memorias': 'tela-memorias',
                 'interacao': 'tela-interacao',
                 'surpresa': 'tela-surpresa'
             };
@@ -367,8 +383,6 @@ function inicializarMenu() {
                 // Atualizar conteúdo específico de cada seção
                 if (secao === 'midias') {
                     atualizarLivro();
-                } else if (secao === 'memorias') {
-                    renderizarCalendario();
                 } else if (secao === 'interacao') {
                     reiniciarJogo();
                 }
@@ -435,18 +449,10 @@ function inicializarModais() {
         $('modal-carta').classList.remove('ativo');
     });
 
-    // Fechar modal de memória
-    $('modal-fechar').addEventListener('click', () => {
-        $('modal-memoria').classList.remove('ativo');
-    });
-
     // Fechar modais ao clicar fora
     window.addEventListener('click', (e) => {
         if (e.target === $('modal-carta')) {
             $('modal-carta').classList.remove('ativo');
-        }
-        if (e.target === $('modal-memoria')) {
-            $('modal-memoria').classList.remove('ativo');
         }
     });
 }
@@ -548,103 +554,6 @@ function renderizarPagina(pagina) {
 }
 
 // ============================================================
-// CALENDÁRIO DE MEMÓRIAS
-// ============================================================
-function inicializarCalendario() {
-    $('mes-anterior').addEventListener('click', () => {
-        estado.mesCalendario--;
-        if (estado.mesCalendario < 0) {
-            estado.mesCalendario = 11;
-            estado.anoCalendario--;
-        }
-        renderizarCalendario();
-    });
-
-    $('mes-proximo').addEventListener('click', () => {
-        estado.mesCalendario++;
-        if (estado.mesCalendario > 11) {
-            estado.mesCalendario = 0;
-            estado.anoCalendario++;
-        }
-        renderizarCalendario();
-    });
-
-    renderizarCalendario();
-}
-
-function renderizarCalendario() {
-    const container = $('calendario-dias');
-    const mesAtual = $('mes-atual');
-
-    const meses = [
-        'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-        'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-    ];
-
-    mesAtual.textContent = `${meses[estado.mesCalendario]} ${estado.anoCalendario}`;
-
-    const primeiroDia = new Date(estado.anoCalendario, estado.mesCalendario, 1).getDay();
-    const diasNoMes = new Date(estado.anoCalendario, estado.mesCalendario + 1, 0).getDate();
-
-    const hoje = new Date();
-    const diaHoje = hoje.getDate();
-    const mesHoje = hoje.getMonth();
-    const anoHoje = hoje.getFullYear();
-
-    container.innerHTML = '';
-
-    // Espaços vazios antes do primeiro dia
-    for (let i = 0; i < primeiroDia; i++) {
-        const espaco = document.createElement('button');
-        espaco.className = 'dia-calendario vazio';
-        espaco.disabled = true;
-        container.appendChild(espaco);
-    }
-
-    // Dias do mês
-    for (let dia = 1; dia <= diasNoMes; dia++) {
-        const btnDia = document.createElement('button');
-        btnDia.className = 'dia-calendario';
-        btnDia.textContent = dia;
-
-        // Verificar se é hoje
-        if (dia === diaHoje && estado.mesCalendario === mesHoje && estado.anoCalendario === anoHoje) {
-            btnDia.classList.add('hoje');
-        }
-
-        // Verificar se tem memória
-        const chaveMemoria = `${estado.anoCalendario}-${String(estado.mesCalendario + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
-        if (CONFIG.memorias[chaveMemoria]) {
-            btnDia.classList.add('com-memoria');
-            btnDia.addEventListener('click', () => abrirMemoria(chaveMemoria));
-        }
-
-        container.appendChild(btnDia);
-    }
-}
-
-function abrirMemoria(chave) {
-    const memoria = CONFIG.memorias[chave];
-    if (!memoria) return;
-
-    $('modal-titulo').textContent = memoria.titulo;
-    $('modal-texto').textContent = memoria.texto;
-
-    const imgModal = $('modal-imagem');
-    if (memoria.imagem) {
-        imgModal.src = memoria.imagem;
-        imgModal.style.display = 'block';
-        imgModal.onerror = function () {
-            this.style.display = 'none';
-        };
-    } else {
-        imgModal.style.display = 'none';
-    }
-
-    $('modal-memoria').classList.add('ativo');
-}
-
-// ============================================================
 // MINI JOGO (ENCONTRAR CORAÇÕES)
 // ============================================================
 function inicializarMiniJogo() {
@@ -715,7 +624,13 @@ function inicializarSurpresa() {
     $('btn-abrir-surpresa').addEventListener('click', () => {
         $('surpresa-container').style.display = 'none';
         $('surpresa-revelada').style.display = 'block';
-        $('texto-surpresa-final').textContent = CONFIG.mensagemSurpresa;
+        const carta = $('texto-surpresa-final');
+        carta.innerHTML = '';
+        CONFIG.mensagemSurpresa.split(/\n\s*\n/).forEach(paragrafo => {
+            const elemento = document.createElement('p');
+            elemento.textContent = paragrafo.trim();
+            carta.appendChild(elemento);
+        });
 
         // Efeito de corações/confetes
         criarEfeito('🪽', 30);
@@ -771,14 +686,8 @@ console.log('   Em CONFIG.paginasLivro, adicione um objeto:');
 console.log('   { tipo: "imagem", titulo: "...", texto: "...", arquivo: "assets/fotos/midia1.png" }');
 console.log('   Tipos disponíveis: "imagem", "video", "texto"');
 console.log('');
-console.log('🗓️ COMO ADICIONAR UMA NOVA MEMÓRIA:');
-console.log('   Em CONFIG.memorias, adicione uma nova chave:');
-console.log('   "AAAA-MM-DD": { titulo: "...", texto: "...", imagem: "assets/memorias/midia3.png" }');
-console.log('   EXEMPLO para dezembro: "2026-12-25": { ... }');
-console.log('');
 console.log('📸 ONDE COLOCAR AS FOTOS:');
 console.log('   - Fotos do livro:     assets/fotos/     (nomeie como midia1.png, midia2.png...)');
-console.log('   - Fotos de memórias:  assets/memorias/  (nomeie como midia3.png, midia4.png...)');
 console.log('   - Vídeos:             assets/videos/');
 console.log('   - Música:             assets/music.mp3');
 console.log('');
