@@ -1079,7 +1079,7 @@ body::after { right: -2rem; bottom: -4rem; transform: scaleX(2.4) rotate(8deg); 
 
 .carta-surpresa-saudacao {
     margin: 0.65rem 0 0;
-    color: #8dd8ff;
+    color: #bce9ff;
     font-size: 0.76rem;
     font-weight: 700;
     letter-spacing: 0.16em;
@@ -1098,9 +1098,12 @@ body::after { right: -2rem; bottom: -4rem; transform: scaleX(2.4) rotate(8deg); 
 }
 
 .texto-surpresa-final {
+    color: #f7fbff;
     font-size: clamp(0.98rem, 2vw, 1.08rem);
+    font-weight: 450;
     line-height: 1.85;
     text-align: left;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
 }
 
 .texto-surpresa-final p {
@@ -1124,7 +1127,7 @@ body::after { right: -2rem; bottom: -4rem; transform: scaleX(2.4) rotate(8deg); 
     width: fit-content;
     margin: 2.5rem 0 0 auto;
     padding-top: 0.75rem;
-    color: #8dd8ff;
+    color: #bce9ff;
     border-top: 2px solid rgba(56, 189, 248, 0.4);
     font: italic 700 1.05rem Georgia, serif;
 }
@@ -1657,5 +1660,82 @@ body.hq-abrindo::after {
     .pagina-video {
         height: auto;
         aspect-ratio: 1600 / 589;
+    }
+}
+
+/* ========================================== */
+/* DEDICATÓRIAS COM PERSONAGENS               */
+/* ========================================== */
+.cartas-container {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.carta.carta-personagem {
+    display: grid;
+    grid-template-rows: 180px 1fr;
+    min-height: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #0d192a;
+    border: 4px solid #02050a;
+    box-shadow: 7px 7px 0 #02050a;
+}
+
+.carta.carta-personagem:hover,
+.carta.carta-personagem:focus-visible {
+    border-color: #02050a;
+    box-shadow: 7px 7px 0 #087fd0;
+    outline: none;
+    transform: translateY(-4px);
+}
+
+.carta-gif-moldura {
+    min-height: 0;
+    overflow: hidden;
+    background: #02050a;
+    border-bottom: 4px solid #02050a;
+}
+
+.carta-gif {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carta-personagem-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.15rem;
+}
+
+.carta-personagem .carta-titulo {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.15rem;
+    text-shadow: 2px 2px 0 #087fd0;
+}
+
+.carta-personagem .carta-preview {
+    display: block;
+    color: #dceeff;
+    line-height: 1.55;
+}
+
+.carta-gif-modal {
+    display: block;
+    width: 100%;
+    max-height: 48vh;
+    margin: 0.75rem 0 1rem;
+    object-fit: contain;
+    background: #02050a;
+    border: 3px solid #02050a;
+}
+
+@media (max-width: 480px) {
+    .carta.carta-personagem {
+        grid-template-rows: 160px 1fr;
     }
 }

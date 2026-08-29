@@ -30,20 +30,23 @@ const CONFIG = {
     tentativasAntesDificil: 10,
 
     // --- Dedicatórias ---
-    // Adicione novas cartas aqui!
+    // Cada dedicatória combina um casal com uma mensagem especial.
     cartas: [
-        {
-            titulo: "Carta 1",
-            texto: "Uma pequena mensagem... Escreva aqui algo especial e significativo para vocês dois. Deixe seu coração falar!"
-        },
-        {
-            titulo: "Carta 2",
-            texto: "Outra mensagem... Cada palavra aqui carrega um pedacinho do meu amor por você."
-        },
-        {
-            titulo: "Carta 3",
-            texto: "Mais uma mensagem... Obrigado por fazer meus dias mais felizes e coloridos."
-        }
+        { titulo: "Peter & Gwen", texto: "Em qualquer universo, eu ainda encontraria um jeito de escolher você. 🕸️💙", gif: "assets/gifs/01.gif" },
+        { titulo: "Mavis & Johnny", texto: "Você transformou meu mundo e fez até o diferente parecer lar. 🦇❤️", gif: "assets/gifs/02.gif" },
+        { titulo: "Ravena & Mutano", texto: "Até nos dias mais sombrios, você sempre encontra um jeito de me fazer sorrir. 💜💚", gif: "assets/gifs/03.gif" },
+        { titulo: "Arlequina & Hera", texto: "Nosso amor floresce do nosso jeitinho: intenso, livre e impossível de ignorar. 🌿💞", gif: "assets/gifs/04.gif" },
+        { titulo: "Batman & Mulher-Gato", texto: "Entre mistérios e noites difíceis, meu coração sempre volta para você. 🦇🐾", gif: "assets/gifs/05.gif" },
+        { titulo: "Denji & Reze", texto: "Mesmo quando o mundo vira caos, um instante ao seu lado faz tudo valer a pena. 🌙💛", gif: "assets/gifs/06.gif" },
+        { titulo: "Temari & Shikamaru", texto: "Talvez amar dê trabalho… mas, com você, é o meu trabalho favorito. 🍃💛", gif: "assets/gifs/07.gif" },
+        { titulo: "Diane & King", texto: "Não importa o tempo ou a distância: meu coração nunca esquece o caminho até você. 🌸✨", gif: "assets/gifs/08.gif" },
+        { titulo: "Maka & Soul", texto: "Você é a sintonia perfeita que faz minha alma dançar. 🎵🤍", gif: "assets/gifs/09.gif" },
+        { titulo: "Minato & Kushina", texto: "Você é o amor que ilumina minha vida mais rápido que qualquer relâmpago. ⚡❤️", gif: "assets/gifs/10.gif" },
+        { titulo: "Soluço & Astrid", texto: "Com você ao meu lado, qualquer aventura se torna o meu lugar seguro. 🐉💙", gif: "assets/gifs/11.gif" },
+        { titulo: "Lucy & Schroeder", texto: "Meu coração sempre escolhe sentar pertinho de você e ouvir nossa música. 🎹💛", gif: "assets/gifs/12.gif" },
+        { titulo: "Jane & Lisbon", texto: "Entre provocações e cumplicidade, você virou o meu mistério favorito. ☕💙", gif: "assets/gifs/13.gif" },
+        { titulo: "Asa Noturna & Estelar", texto: "Você é a luz que colore minhas noites e faz meu coração voar. 🪽💫", gif: "assets/gifs/14.gif" },
+        { titulo: "Homem-Aranha & Gata Negra", texto: "Entre saltos, perigos e brincadeiras, eu sempre quero cair nos seus braços. 🕷️🖤", gif: "assets/gifs/15.gif" }
     ],
 
     // --- Mídias (Livro) ---
@@ -420,17 +423,28 @@ function renderizarCartas() {
 
     CONFIG.cartas.forEach((carta, index) => {
         const cartaEl = document.createElement('div');
-        cartaEl.className = 'carta';
+        cartaEl.className = 'carta carta-personagem';
+        cartaEl.tabIndex = 0;
+        cartaEl.setAttribute('role', 'button');
+        cartaEl.setAttribute('aria-label', `Abrir dedicatória de ${carta.titulo}`);
         cartaEl.innerHTML = `
-            <div>
+            <div class="carta-gif-moldura">
+                <img class="carta-gif" src="${carta.gif}" alt="${carta.titulo}" loading="lazy">
+            </div>
+            <div class="carta-personagem-conteudo">
                 <div class="carta-titulo">${carta.titulo}</div>
                 <div class="carta-preview">${carta.texto}</div>
             </div>
-            <div class="carta-icone">💌</div>
         `;
 
         cartaEl.addEventListener('click', () => {
             abrirCarta(carta);
+        });
+        cartaEl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                abrirCarta(carta);
+            }
         });
 
         cartasContainer.appendChild(cartaEl);
@@ -440,6 +454,9 @@ function renderizarCartas() {
 function abrirCarta(carta) {
     $('carta-titulo').textContent = carta.titulo;
     $('carta-texto').textContent = carta.texto;
+    const gifModal = $('carta-gif-modal');
+    gifModal.src = carta.gif;
+    gifModal.alt = carta.titulo;
     $('modal-carta').classList.add('ativo');
 }
 
