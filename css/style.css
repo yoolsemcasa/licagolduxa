@@ -1535,6 +1535,18 @@ body.hq-abrindo::after {
     background: #050a13;
 }
 
+.pagina-video {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+    border: 4px solid #02050a;
+    background: #050a13;
+}
+
 .pagina-titulo {
     margin: 0.15rem 0 0;
     font-size: clamp(1rem, 2.2vw, 1.35rem);
@@ -1558,7 +1570,8 @@ body.hq-abrindo::after {
         padding: 0.55rem;
     }
 
-    .pagina-imagem {
+    .pagina-imagem,
+    .pagina-video {
         height: auto;
         aspect-ratio: 1600 / 589;
     }

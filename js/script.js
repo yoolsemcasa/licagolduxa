@@ -98,6 +98,18 @@ const CONFIG = {
             texto: "Nossa história é o conto favorito que eu escolheria viver para sempre. ❤️",
             arquivo: "assets/fotos/lica-ricky-um-ano.png",
             imagemEsquerda: null
+        },
+        {
+            tipo: "video",
+            titulo: "Amores lendários",
+            texto: "Em qualquer universo, meu par favorito sempre vai ser você. ♡",
+            arquivo: "assets/videos/licky.mp4"
+        },
+        {
+            tipo: "video",
+            titulo: "Eu sigo você",
+            texto: "Se for com você, eu sigo — hoje, amanhã e em todas as aventuras. 💙",
+            arquivo: "assets/videos/licky2.mp4"
         }
     ],
 
@@ -459,6 +471,9 @@ function inicializarLivro() {
 
     // Clique na página para avançar
     document.querySelector('.livro').addEventListener('click', (e) => {
+        // Os controles do vídeo não devem virar a página do álbum.
+        if (e.target.closest('video')) return;
+
         // Se clicou no lado direito, avança; esquerda, volta
         const livro = e.currentTarget;
         const rect = livro.getBoundingClientRect();
@@ -515,11 +530,12 @@ function renderizarPagina(pagina) {
         `;
     } else if (pagina.tipo === 'video') {
         return `
-            <video class="pagina-video" controls>
+            <video class="pagina-video" controls playsinline preload="metadata" aria-label="${pagina.titulo}">
                 <source src="${pagina.arquivo}" type="video/mp4">
                 Seu navegador não suporta vídeos.
             </video>
             <div class="pagina-titulo">${pagina.titulo}</div>
+            <div class="pagina-texto">${pagina.texto}</div>
         `;
     } else if (pagina.tipo === 'texto') {
         return `
