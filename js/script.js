@@ -116,10 +116,6 @@ const CONFIG = {
         }
     ],
 
-    // --- Interação (Jogo) ---
-    totalCoracoes: 10,
-    mensagemVitoria: "Missão cumprida. Você encontrou todos! ⚡",
-
     // --- Surpresa ---
     mensagemSurpresa: `OIII MEU AMOR, TUDO BEM? antes de tudo, eu queria muito te agradecer pela incrível pessoa que você é pra mim, de como minha vida melhorou desde o dia que passamos a conversar e de como você me salva e me faz extremamente bem todos os dias. todas as noites ficam tranquilas e incríveis se recebo um boa noite seu e vou dormir feliz sabendo que, no outro dia, sempre vai ter o melhor bom dia do mundo, que é o seu, o tornando realmente bom (ou até mais do que isso).
 
@@ -172,7 +168,6 @@ let estado = {
     naoDificil: false,
     paginaLivroAtual: 0,
     totalPaginasLivro: 0,
-    coracoesEncontrados: 0,
     surpresaAberta: false,
     tocandoMusica: false,
     audio: null
@@ -225,7 +220,6 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarMenu();
     inicializarDedicatorias();
     inicializarLivro();
-    inicializarMiniJogo();
     inicializarSurpresa();
     inicializarModais();
 
@@ -376,7 +370,6 @@ function inicializarMenu() {
             const telaMap = {
                 'dedicatorias': 'tela-dedicatorias',
                 'midias': 'tela-midias',
-                'interacao': 'tela-interacao',
                 'surpresa': 'tela-surpresa'
             };
 
@@ -386,8 +379,6 @@ function inicializarMenu() {
                 // Atualizar conteúdo específico de cada seção
                 if (secao === 'midias') {
                     atualizarLivro();
-                } else if (secao === 'interacao') {
-                    reiniciarJogo();
                 }
             }
         });
@@ -568,70 +559,6 @@ function renderizarPagina(pagina) {
     }
 
     return '<span class="pagina-vazio">Página vazia</span>';
-}
-
-// ============================================================
-// MINI JOGO (ENCONTRAR CORAÇÕES)
-// ============================================================
-function inicializarMiniJogo() {
-    $('btn-reiniciar-jogo').addEventListener('click', reiniciarJogo);
-}
-
-function reiniciarJogo() {
-    estado.coracoesEncontrados = 0;
-    atualizarPlacar();
-    gerarCoracoes();
-}
-
-function gerarCoracoes() {
-    const area = $('area-coracoes');
-    area.innerHTML = '';
-
-    const total = CONFIG.totalCoracoes;
-
-    for (let i = 0; i < total; i++) {
-        const coracao = document.createElement('span');
-        coracao.className = 'coracao';
-        coracao.textContent = '🔷';
-
-        // Posição aleatória dentro da área
-        const areaRect = area.getBoundingClientRect();
-        const maxX = areaRect.width - 40;
-        const maxY = areaRect.height - 40;
-
-        coracao.style.left = Math.random() * maxX + 'px';
-        coracao.style.top = Math.random() * maxY + 'px';
-
-        // Animação de entrada com delay
-        coracao.style.animationDelay = (i * 0.1) + 's';
-
-        coracao.addEventListener('click', () => {
-            if (coracao.classList.contains('encontrado')) return;
-
-            coracao.classList.add('encontrado');
-            estado.coracoesEncontrados++;
-            atualizarPlacar();
-
-            if (estado.coracoesEncontrados >= CONFIG.totalCoracoes) {
-                setTimeout(() => {
-                    vitoriaJogo();
-                }, 800);
-            }
-        });
-
-        area.appendChild(coracao);
-    }
-}
-
-function atualizarPlacar() {
-    const placar = $('placar');
-    placar.textContent = `Símbolos encontrados: ${estado.coracoesEncontrados} / ${CONFIG.totalCoracoes}`;
-}
-
-function vitoriaJogo() {
-    const area = $('area-coracoes');
-    area.innerHTML = `<p class="mensagem-vitoria">${CONFIG.mensagemVitoria}</p>`;
-    criarEfeito('⚡', 20);
 }
 
 // ============================================================
